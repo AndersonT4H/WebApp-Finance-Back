@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "finance-app-collection-001",
+    "name": "FinanceApp API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar Contas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/accounts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "accounts"]
+        }
+      }
+    },
+    {
+      "name": "Buscar Conta por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/accounts/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "accounts", "1"]
+        }
+      }
+    },
+    {
+      "name": "Criar Conta",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Conta Corrente Exemplo\",\n  \"type\": \"Corrente\",\n  \"initialBalance\": 1000\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/accounts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "accounts"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar Conta",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Conta Corrente Atualizada\",\n  \"type\": \"Poupança\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/accounts/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "accounts", "1"]
+        }
+      }
+    },
+    {
+      "name": "Deletar Conta",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/accounts/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "accounts", "1"]
+        }
+      }
+    },
+    {
+      "name": "Listar Transações",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "transactions"]
+        }
+      }
+    },
+    {
+      "name": "Buscar Transação por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/transactions/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "transactions", "1"]
+        }
+      }
+    },
+    {
+      "name": "Criar Transação",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"Crédito\",\n  \"amount\": 500,\n  \"description\": \"Salário\",\n  \"accountId\": 1,\n  \"transactionDate\": \"2024-06-25\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "transactions"]
+        }
+      }
+    },
+    {
+      "name": "Criar Transferência",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 200,\n  \"description\": \"Transferência para poupança\",\n  \"accountId\": 1,\n  \"destinationAccountId\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/transactions/transfer",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "transactions", "transfer"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar Transação",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"Débito\",\n  \"amount\": 100,\n  \"description\": \"Compra mercado\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/transactions/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "transactions", "1"]
+        }
+      }
+    },
+    {
+      "name": "Deletar Transação",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/transactions/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "transactions", "1"]
+        }
+      }
+    }
+  ]
+} 
