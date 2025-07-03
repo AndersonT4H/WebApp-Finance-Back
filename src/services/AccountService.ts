@@ -59,15 +59,11 @@ export class AccountService implements IAccountService {
     const account = await this.getAccountById(id);
     
     // Verifica se há transações associadas
-    const transactionCount = await this.accountRepository
+    await this.accountRepository
       .createQueryBuilder('account')
       .leftJoin('account.transactions', 'transaction')
       .where('account.id = :id', { id })
       .getCount();
-
-    if (transactionCount > 0) {
-      throw new Error('Não é possível excluir uma conta que possui transações');
-    }
 
     await this.accountRepository.remove(account);
     return true;

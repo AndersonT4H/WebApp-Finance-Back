@@ -21,7 +21,6 @@ export class AccountController implements IAccountController {
     }
   }
 
-
   async getAllAccounts(_req: Request, res: Response): Promise<void> {
     try {
       const accounts = await this.accountService.getAllAccounts();
@@ -152,7 +151,6 @@ export class AccountController implements IAccountController {
     
     res.status(statusCode).json(response);
   }
-
 
   private getStatusCode(error: Error): number {
     if (error.message.includes('não encontrada') || error.message.includes('não encontrado')) {

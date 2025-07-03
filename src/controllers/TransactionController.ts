@@ -1,14 +1,6 @@
 import { Request, Response } from 'express';
 import { ITransactionController, ITransactionService, IApiResponse } from '../types';
 
-/**
- * Controlador responsável pelas operações HTTP relacionadas às transações
- * Aplicando princípios de Clean Code:
- * - Responsabilidade única: Apenas operações HTTP de transação
- * - Nomes descritivos: Métodos com nomes claros
- * - Funções pequenas: Cada método tem uma responsabilidade específica
- * - Tratamento de erros: Respostas HTTP adequadas
- */
 export class TransactionController implements ITransactionController {
   constructor(private transactionService: ITransactionService) {}
 
@@ -68,7 +60,6 @@ export class TransactionController implements ITransactionController {
     }
   }
 
-
   async updateTransaction(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;
@@ -87,7 +78,6 @@ export class TransactionController implements ITransactionController {
       this.handleError(res, error as Error, 'Erro ao atualizar transação');
     }
   }
-
 
   async deleteTransaction(req: Request, res: Response): Promise<void> {
     try {
@@ -122,7 +112,6 @@ export class TransactionController implements ITransactionController {
       this.handleError(res, error as Error, 'Erro ao realizar transferência');
     }
   }
-
 
   async getTransactionsByAccount(req: Request, res: Response): Promise<void> {
     try {
@@ -177,7 +166,6 @@ export class TransactionController implements ITransactionController {
     
     res.status(statusCode).json(response);
   }
-
 
   private getStatusCode(error: Error): number {
     if (error.message.includes('não encontrada') || error.message.includes('não encontrado')) {

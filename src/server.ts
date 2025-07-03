@@ -46,8 +46,8 @@ export class Server implements IServer {
 
     // Rate limiting
     const limiter = rateLimit({
-      windowMs: 60 * 60 * 1000, // 1 hora
-      max: 100, // limite de 100 requisições por IP
+      windowMs: 120 * 60 * 1000, // 1 hora
+      max: 1000, // limite de 100 requisições por IP
       message: {
         success: false,
         message: 'Muitas requisições. Tente novamente mais tarde.'

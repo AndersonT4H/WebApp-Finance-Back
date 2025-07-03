@@ -94,7 +94,6 @@ export class Transaction {
     this.updatedAt = new Date();
   }
 
-
   getFormattedAmount(): string {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -106,16 +105,13 @@ export class Transaction {
     return this.transactionDate.toLocaleDateString('pt-BR');
   }
 
-
   isTransfer(): boolean {
     return this.type === TransactionTypeEnum.TRANSFER;
   }
 
-
   isDebit(): boolean {
     return this.type === TransactionTypeEnum.DEBIT;
   }
-
 
   isCredit(): boolean {
     return this.type === TransactionTypeEnum.CREDIT;
