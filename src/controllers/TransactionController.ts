@@ -3,7 +3,7 @@ import { ITransactionController, ITransactionService, IApiResponse } from '../ty
 
 export class TransactionController implements ITransactionController {
   constructor(private transactionService: ITransactionService) {}
-
+                                                                                                                                                                                                                                                                                    
   async createTransaction(req: Request, res: Response): Promise<void> {
     try {
       const transactionData = req.body;
@@ -27,7 +27,8 @@ export class TransactionController implements ITransactionController {
         ...(req.query['accountId'] ? { accountId: parseInt(req.query['accountId'] as string) } : {}),
         ...(req.query['type'] ? { type: req.query['type'] as any } : {}),
         ...(req.query['startDate'] ? { startDate: req.query['startDate'] as string } : {}),
-        ...(req.query['endDate'] ? { endDate: req.query['endDate'] as string } : {})
+        ...(req.query['endDate'] ? { endDate: req.query['endDate'] as string } : {}),
+        ...(req.query['search'] ? { search: req.query['search'] as string } : {})
       };
 
       const transactions = await this.transactionService.getAllTransactions(filters);

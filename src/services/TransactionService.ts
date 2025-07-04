@@ -96,15 +96,25 @@ export class TransactionService implements ITransactionService {
     }
 
     if (filters.startDate) {
+      // Ajusta o startDate para o início do dia
+      const startDate = new Date(filters.startDate);
+      startDate.setHours(0, 0, 0, 0);
       queryBuilder.andWhere('transaction.transactionDate >= :startDate', { 
-        startDate: new Date(filters.startDate) 
+        startDate
       });
     }
 
     if (filters.endDate) {
+      // Ajusta o endDate para o final do dia
+      const endDate = new Date(filters.endDate);
+      endDate.setHours(23, 59, 59, 999);
       queryBuilder.andWhere('transaction.transactionDate <= :endDate', { 
-        endDate: new Date(filters.endDate) 
+        endDate
       });
+    }
+
+    if (filters.search) {
+      queryBuilder.andWhere('transaction.description LIKE :search', { search: `%${filters.search}%` });
     }
 
     return await queryBuilder.getMany();

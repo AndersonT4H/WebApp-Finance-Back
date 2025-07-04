@@ -74,6 +74,7 @@ export interface ITransactionFilters {
   type?: TransactionType;
   startDate?: string;
   endDate?: string;
+  search?: string;
 }
 
 export interface ITransactionStatistics {
