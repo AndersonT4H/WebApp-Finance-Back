@@ -231,6 +231,16 @@ Consulte o arquivo `API_DOCUMENTATION.md` para documentação completa dos endpo
 - **Input Validation**: Validação de entrada
 - **Error Handling**: Tratamento centralizado de erros
 
+## 🛡️ Validações e Segurança das APIs
+
+Todas as rotas da API possuem validações rigorosas, incluindo:
+- **Campos obrigatórios**: Não permite requisições sem os dados essenciais.
+- **Validação de tipos**: Garante que os dados enviados estejam no formato correto.
+- **Bloqueio de operações inválidas**: Impede ações como transações sem saldo, tipos inválidos, datas inconsistentes, etc.
+- **Tratamento centralizado de erros**: Mensagens claras e status HTTP adequados para cada situação.
+
+Essas validações garantem a integridade dos dados e a segurança das operações do sistema.
+
 ## 🚀 Deploy
 
 ### Build para Produção
